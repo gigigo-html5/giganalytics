@@ -1,0 +1,20 @@
+{
+  "name": "giganalytics",
+  "version": "0.0.1",
+  "homepage": "https://github.com/gigigo-html5/giganalytics",
+  "authors": [
+    "Pedro Peña <pedro.jose@gigigo.com>"
+  ],
+  "description": "\"Angular Module for Google Analytics\"",
+    "dependencies": {
+        "angular": ">=1"
+    },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
