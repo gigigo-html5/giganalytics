@@ -1,17 +1,23 @@
 (function() {
     'use strict';
 
+    function AnalyticsService() {
 
-    angular.module('gig-analytics', [])
-        .provider('AnalyticsService', ['$log', '$window', function($log, $window) {
+        var accountId,
+            trackRoutes = true;
 
-            var accountId;
+        this.setAccount = function (id) {
+            accountId = id;
+            return true;
+        };
 
-            // config methods
-            this.setAccount = function (id) {
-                accountId = id;
-                return true;
-            };
+        this.trackPages = function (doTrack) {
+            trackRoutes = doTrack;
+            return true;
+        };
+
+        this.$get = ['$log', '$window', '$rootScope', '$stateParams', function($log, $window, $rootScope, $stateParams) {
+            var me = this;
 
             this._createScript = function() {
                 // inject the google analytics tag
@@ -21,24 +27,36 @@
                 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
                 $window._gaq = [];
+
                 $window._gaq.push(['_setAccount', accountId]);
             };
 
-            this.trackPage = function(section) {
-                $log.debug('Track Page: '+section);
-                $window.ga('send','pageview', section);
+            this._trackPage = function (section) {
+                $log.debug('Track Page: ' + section);
+                $window.ga('send', 'pageview', section);
             };
 
-            this.trackEvent = function(section, code, category) {
-                $log.debug('Track Event: '+section, code, category);
+            this._trackEvent = function (section, code, category) {
+                $log.debug('Track Event: ' + section, code, category);
                 $window.ga('send', 'event', section, code, category);
             };
 
+
             this._createScript();
 
+            return {
+                trackPage: function (section) {
+                    me._trackPage(section);
+                },
+                trackEvent: function (section, code, category) {
+                    me._trackEvent(section, code, category);
+                }
+            }
+        }];
+    }
 
-
-        }]);
+    angular.module('gig-analytics', [])
+        .provider('GigAnalytics', AnalyticsService);
 
 
 
