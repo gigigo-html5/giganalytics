@@ -43,7 +43,7 @@
 
     }
 
-    angular.module('gig-analytics')
+    angular.module('gig-analytics', [])
         .provider('AnalyticsService', AnalyticsService);
 
 
