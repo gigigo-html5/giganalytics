@@ -1,7 +1,7 @@
 {
     "name": "gig-analytics",
     "description": "Angular Google Analytics - Angular Module for Google Analytics",
-    "version": "0.1",
+    "version": "0.0.3",
     "homepage": "https://github.com/gigigo-html5/giganalytics",
     "author": "Pedro José Peña Jerez <pedro.jose@gigigo.com>",
     "main": "./src/gig-analytics.js",

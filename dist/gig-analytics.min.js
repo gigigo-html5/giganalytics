@@ -1,6 +1,6 @@
 /**
  * Angular Google Analytics - Angular Module for Google Analytics
- * @version v0.1 - 2015-05-25
+ * @version v0.0.3 - 2015-05-25
  * @link https://github.com/gigigo-html5/giganalytics
  * @author Pedro José Peña Jerez <pedro.jose@gigigo.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
