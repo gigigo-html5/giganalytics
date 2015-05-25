@@ -16,7 +16,7 @@
             return true;
         };
 
-        this.$get = ['$log', '$window', '$rootScope', '$stateParams', function($log, $window, $rootScope, $stateParams) {
+        this.$get = ['$log', '$window', '$rootScope', '$stateParams', '$document', function($log, $window, $rootScope, $stateParams, $document) {
             var me = this;
 
             this._createScript = function() {
