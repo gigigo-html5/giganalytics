@@ -29,6 +29,18 @@
                 $window._gaq = [];
 
                 $window._gaq.push(['_setAccount', accountId]);
+
+                $window.ga('create', accountId);
+                var gaSrc;
+
+                gaSrc = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+                (function () {
+                  var document = $document[0];
+                  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                  ga.src = gaSrc;
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })(gaSrc);
             };
 
             this._trackPage = function (section) {
